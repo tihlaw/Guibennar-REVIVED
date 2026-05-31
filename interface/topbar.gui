@@ -11746,7 +11746,7 @@ guiTypes = {
 			}
 		} #End container for Magic Menu UI
 
-		windowType = {
+		windowType = { #Start of Guibenanr custom window for enabling regions
 			name = "guib_settings_window"
 			backGround=""
 			position = { x= -345 y= -325 }

@@ -1,53 +1,3 @@
-
-#raj menubar
-custom_window = {
-	name = raj_menubar_window
-	potential = {
-		OR = { 
-			overlord = { has_government_attribute = is_raja }
-			has_government_attribute = is_raja
-			any_known_country = {
-				OR = { 
-					overlord = { has_government_attribute = is_raja }
-					has_government_attribute = is_raja
-				}
-			}
-		}
-	}
-}
-
-custom_icon = {
-	name = raj_menubar_bg 
-	potential = { always = yes }
-}
-
-custom_text_box = {
-	name = raj_menubar_value
-	potential = { always = yes }
-}
-
-custom_button = {
-	name = raj_menubar_button
-	tooltip = raj_menubar_button_tt
-	potential = { always = yes }
-	
-	trigger = {
-		always = yes 
-	}
-	
-	effect = {
-		if = {
-			limit = { NOT = { has_country_flag = raj_menu_open } }
-			set_country_flag = raj_menu_open
-			custom_tooltip = raj_open_raj_menu_tt
-			hidden_effect = { country_event = { id = rahenraj.3000 } }
-		}
-	}
-}
-
-
-
-#settings
 custom_window = {
 	name = guib_settings_window
 	potential = { NOT = { has_global_flag = settings_done } }
@@ -364,6 +314,8 @@ custom_icon = {
 	frame = { number = 3 trigger = { always = yes } }
 }
 
+# north_sarhal now covers: north_salahad_superregion (akasik, kheterata, west_salahad)
+# + gol_region individually (gol is in south_salahad_superregion alongside gazraak which belongs to east sarhal)
 custom_button = {
 	name = guib_settings_north_sarhal
 	tooltip = guib_settings_north_sarhal
@@ -377,9 +329,8 @@ custom_button = {
 			limit = {
 				capital_scope = { 
 					OR = {
-						region = gol_region
-						region = khetapera_region
 						superregion = north_salahad_superregion
+						region = gol_region
 					}
 				}
 			}
@@ -402,9 +353,8 @@ custom_button = {
 			limit = {
 				capital_scope = { 
 					OR = {
-						region = gol_region
-						region = khetapera_region
 						superregion = north_salahad_superregion
+						region = gol_region
 					}
 				}
 			}
@@ -424,9 +374,8 @@ custom_icon = {
 			has_global_flag = delete_north_sarhal_region
 			capital_scope = { 
 				OR = {
-					region = gol_region
-					region = khetapera_region
 					superregion = north_salahad_superregion
+					region = gol_region
 				}
 			}
 		}
@@ -441,6 +390,10 @@ custom_icon = {
 	frame = { number = 3 trigger = { always = yes } }
 }
 
+# south_sarhal now covers: fangaula_superregion + tanib_dajek_superregion + taneyas_superregion
+# fangaula = kubaci, janama, dao_nako
+# tanib_dajek = horashesh, khetapera, fahvanosy
+# taneyas = throden_gokad, katala_raz, odu_kherass
 custom_button = {
 	name = guib_settings_south_sarhal
 	tooltip = guib_settings_south_sarhal
@@ -455,11 +408,8 @@ custom_button = {
 				capital_scope = { 
 					OR = {
 						superregion = fangaula_superregion
-						region = horashesh_region
-						region = fahvanosy_region
-						region = katala_raz_region
-						region = throden_gokad_region
-						region = odu_kherass_region
+						superregion = tanib_dajek_superregion
+						superregion = taneyas_superregion
 					}
 				}
 			}
@@ -483,11 +433,8 @@ custom_button = {
 				capital_scope = { 
 					OR = {
 						superregion = fangaula_superregion
-						region = horashesh_region
-						region = fahvanosy_region
-						region = katala_raz_region
-						region = throden_gokad_region
-						region = odu_kherass_region
+						superregion = tanib_dajek_superregion
+						superregion = taneyas_superregion
 					}
 				}
 			}
@@ -508,11 +455,8 @@ custom_icon = {
 			capital_scope = { 
 				OR = {
 					superregion = fangaula_superregion
-					region = horashesh_region
-					region = fahvanosy_region
-					region = katala_raz_region
-					region = throden_gokad_region
-					region = odu_kherass_region
+					superregion = tanib_dajek_superregion
+					superregion = taneyas_superregion
 				}
 			}
 		}
@@ -527,6 +471,10 @@ custom_icon = {
 	frame = { number = 3 trigger = { always = yes } }
 }
 
+# east_sarhal now covers: east_sarhal_superregion + djinnakah_superregion + gazraak_region
+# east_sarhal_superregion = bamaliwuni, ishyamtumu, yetefesefi, telekenid, shadow_swamp, dreksaret, denibari
+# djinnakah_superregion = jasiir_jadid, ardimya
+# gazraak_region is in south_salahad_superregion (with gol), listed individually to avoid destroying gol here
 custom_button = {
 	name = guib_settings_east_sarhal
 	tooltip = guib_settings_east_sarhal
@@ -541,8 +489,7 @@ custom_button = {
 				capital_scope = { 
 					OR = {
 						superregion = east_sarhal_superregion
-						region = jasiir_jadid_region
-						region = ardimya_region
+						superregion = djinnakah_superregion
 						region = gazraak_region
 					}
 				}
@@ -567,8 +514,7 @@ custom_button = {
 				capital_scope = { 
 					OR = {
 						superregion = east_sarhal_superregion
-						region = jasiir_jadid_region
-						region = ardimya_region
+						superregion = djinnakah_superregion
 						region = gazraak_region
 					}
 				}
@@ -590,8 +536,7 @@ custom_icon = {
 			capital_scope = { 
 				OR = {
 					superregion = east_sarhal_superregion
-					region = jasiir_jadid_region
-					region = ardimya_region
+					superregion = djinnakah_superregion
 					region = gazraak_region
 				}
 			}
@@ -660,6 +605,10 @@ custom_icon = {
 	frame = { number = 3 trigger = { always = yes } }
 }
 
+# haless now covers: yanshen_superregion + vimdatrong_superregion
+# yanshen = lower_yanshen, upper_yanshen, demon_hills, north_yanshen
+# vimdatrong = xianjie, thidinkai, bomdan, ringlet_isles, lupulan_rainforest
+# (replaces the old south_haless_superregion which no longer exists)
 custom_button = {
 	name = guib_settings_haless
 	tooltip = guib_settings_haless
@@ -674,7 +623,7 @@ custom_button = {
 				capital_scope = { 
 					OR = {
 						superregion = yanshen_superregion
-						superregion = south_haless_superregion
+						superregion = vimdatrong_superregion
 					}
 				}
 			}
@@ -698,7 +647,7 @@ custom_button = {
 				capital_scope = { 
 					OR = {
 						superregion = yanshen_superregion
-						superregion = south_haless_superregion
+						superregion = vimdatrong_superregion
 					}
 				}
 			}
@@ -719,7 +668,7 @@ custom_icon = {
 			capital_scope = { 
 				OR = {
 					superregion = yanshen_superregion
-					superregion = south_haless_superregion
+					superregion = vimdatrong_superregion
 				}
 			}
 		}
@@ -734,6 +683,8 @@ custom_icon = {
 	frame = { number = 3 trigger = { always = yes } }
 }
 
+# gozenguun now uses gozengun_superregion (was north_haless_superregion, which no longer exists)
+# gozengun_superregion = shuvuushudi, gowon, khaashalg, moduk, nomsyulhan
 custom_button = {
 	name = guib_settings_gozenguun
 	tooltip = guib_settings_gozenguun
@@ -746,7 +697,7 @@ custom_button = {
 		if = {
 			limit = {
 				capital_scope = { 
-					superregion = north_haless_superregion
+					superregion = gozengun_superregion
 				}
 			}
 			custom_tooltip = tag_in_this_region_tt
@@ -767,7 +718,7 @@ custom_button = {
 		if = {
 			limit = {
 				capital_scope = { 
-					superregion = north_haless_superregion
+					superregion = gozengun_superregion
 				}
 			}
 			custom_tooltip = tag_in_this_region_tt
@@ -785,7 +736,7 @@ custom_icon = {
 		trigger = {
 			has_global_flag = delete_gozenguun_region
 			capital_scope = { 
-				superregion = north_haless_superregion
+				superregion = gozengun_superregion
 			}
 		}
 	}
@@ -839,9 +790,7 @@ custom_icon = {
 		number = 1
 		trigger = {
 			has_global_flag = delete_forbidden_plains_region
-			capital_scope = { 
-				superregion = forbidden_lands_superregion
-			}
+			capital_scope = { superregion = forbidden_lands_superregion }
 		}
 	}
 	frame = {
@@ -894,9 +843,7 @@ custom_icon = {
 		number = 1
 		trigger = {
 			has_global_flag = delete_west_serpentspine_region
-			capital_scope = { 
-				superregion = west_serpentspine_superregion
-			}
+			capital_scope = { superregion = west_serpentspine_superregion }
 		}
 	}
 	frame = {
@@ -949,9 +896,7 @@ custom_icon = {
 		number = 1
 		trigger = {
 			has_global_flag = delete_east_serpentspine_region
-			capital_scope = { 
-				superregion = east_serpentspine_superregion
-			}
+			capital_scope = { superregion = east_serpentspine_superregion }
 		}
 	}
 	frame = {
@@ -964,16 +909,28 @@ custom_icon = {
 	frame = { number = 3 trigger = { always = yes } }
 }
 
+# insyaa now enabled - uses kanolowele_superregion + insyaan_lowlands_superregion
+# + charkuchar_superregion + hinuilands_superregion
 custom_button = {
 	name = guib_settings_insyaa
 	tooltip = guib_settings_insyaa
-	potential = { always = no }
+	potential = { NOT = { has_global_flag = delete_insyaa_region } }
 	trigger = { }
 	
 	effect = {
 		custom_tooltip = disable_region_tt
 		set_global_flag = delete_insyaa_region
-		if = { limit = { capital_scope = { continent = oceania } }
+		if = {
+			limit = {
+				capital_scope = {
+					OR = {
+						superregion = kanolowele_superregion
+						superregion = insyaan_lowlands_superregion
+						superregion = charkuchar_superregion
+						superregion = hinuilands_superregion
+					}
+				}
+			}
 			custom_tooltip = tag_in_this_region_tt
 		}
 		if = { limit = { tag_needs_insyaa = yes }
@@ -984,12 +941,22 @@ custom_button = {
 custom_button = {
 	name = guib_settings_insyaa_disabled
 	tooltip = guib_settings_insyaa
-	potential = { always = no }
+	potential = { has_global_flag = delete_insyaa_region }
 	trigger = { }
 	
 	effect = {
 		clr_global_flag = delete_insyaa_region
-		if = { limit = { capital_scope = { continent = oceania } }
+		if = {
+			limit = {
+				capital_scope = {
+					OR = {
+						superregion = kanolowele_superregion
+						superregion = insyaan_lowlands_superregion
+						superregion = charkuchar_superregion
+						superregion = hinuilands_superregion
+					}
+				}
+			}
 			custom_tooltip = tag_in_this_region_tt
 		}
 		if = { limit = { tag_needs_insyaa = yes }
@@ -1004,7 +971,14 @@ custom_icon = {
 		number = 1
 		trigger = {
 			has_global_flag = delete_insyaa_region
-			capital_scope = { continent = oceania }
+			capital_scope = {
+				OR = {
+					superregion = kanolowele_superregion
+					superregion = insyaan_lowlands_superregion
+					superregion = charkuchar_superregion
+					superregion = hinuilands_superregion
+				}
+			}
 		}
 	}
 	frame = {
@@ -1040,7 +1014,7 @@ custom_button = {
 					has_global_flag = delete_forbidden_plains_region
 					has_global_flag = delete_east_serpentspine_region
 					has_global_flag = delete_west_serpentspine_region
-					# has_global_flag = delete_insyaa_region
+					has_global_flag = delete_insyaa_region
 				}
 			}
 		}
@@ -1362,7 +1336,6 @@ custom_button = {
 					has_global_flag = delete_south_sarhal_region
 					has_global_flag = delete_east_sarhal_region
 					has_global_flag = delete_north_aelantir_region
-					has_global_flag = delete_north_aelantir_region
 					has_global_flag = delete_bulwar_region
 					has_global_flag = delete_north_sarhal_region
 					has_global_flag = delete_south_aelantir_region
@@ -1374,7 +1347,7 @@ custom_button = {
 					has_global_flag = delete_forbidden_plains_region
 					has_global_flag = delete_east_serpentspine_region
 					has_global_flag = delete_west_serpentspine_region
-					# has_global_flag = delete_insyaa_region
+					has_global_flag = delete_insyaa_region
 				}
 			}
 			custom_tooltip = settings_regions_are_gonna_get_removed_tt
@@ -1384,22 +1357,17 @@ custom_button = {
 				bulwar_superregion = { destroy_province_permanently = yes }
 			}
 			if = { limit = { has_global_flag = delete_north_sarhal_region }
-				gol_region = { destroy_province_permanently = yes }
-				khetapera_region = { destroy_province_permanently = yes }
 				north_salahad_superregion = { destroy_province_permanently = yes }
+				gol_region = { destroy_province_permanently = yes }
 			}
 			if = { limit = { has_global_flag = delete_south_sarhal_region }
 				fangaula_superregion = { destroy_province_permanently = yes }
-				horashesh_region = { destroy_province_permanently = yes }
-				fahvanosy_region = { destroy_province_permanently = yes }
-				katala_raz_region = { destroy_province_permanently = yes }
-				throden_gokad_region = { destroy_province_permanently = yes }
-				odu_kherass_region = { destroy_province_permanently = yes }
+				tanib_dajek_superregion = { destroy_province_permanently = yes }
+				taneyas_superregion = { destroy_province_permanently = yes }
 			}
 			if = { limit = { has_global_flag = delete_east_sarhal_region }
 				east_sarhal_superregion = { destroy_province_permanently = yes }
-				jasiir_jadid_region = { destroy_province_permanently = yes }
-				ardimya_region = { destroy_province_permanently = yes }
+				djinnakah_superregion = { destroy_province_permanently = yes }
 				gazraak_region = { destroy_province_permanently = yes }
 			}
 			if = { limit = { has_global_flag = delete_north_aelantir_region }
@@ -1424,7 +1392,7 @@ custom_button = {
 			}
 			if = { limit = { has_global_flag = delete_haless_region }
 				yanshen_superregion = { destroy_province_permanently = yes }
-				south_haless_superregion = { destroy_province_permanently = yes }
+				vimdatrong_superregion = { destroy_province_permanently = yes }
 			}
 			if = { limit = { has_global_flag = delete_east_serpentspine_region }
 				east_serpentspine_superregion = { destroy_province_permanently = yes }
@@ -1432,12 +1400,15 @@ custom_button = {
 			if = { limit = { has_global_flag = delete_west_serpentspine_region }
 				west_serpentspine_superregion = { destroy_province_permanently = yes }
 			}
-			if = { limit = { has_global_flag = delete_gozenguun_region } 
-				north_haless_superregion = { destroy_province_permanently = yes }
+			if = { limit = { has_global_flag = delete_gozenguun_region }
+				gozengun_superregion = { destroy_province_permanently = yes }
 			}
-			# if = { limit = { has_global_flag = delete_insyaa_region }
-				# oceania = { destroy_province_permanently = yes }
-			# }
+			if = { limit = { has_global_flag = delete_insyaa_region }
+				kanolowele_superregion = { destroy_province_permanently = yes }
+				insyaan_lowlands_superregion = { destroy_province_permanently = yes }
+				charkuchar_superregion = { destroy_province_permanently = yes }
+				hinuilands_superregion = { destroy_province_permanently = yes }
+			}
 		}
 		set_global_flag = settings_done
 		clr_global_flag = settings_opened
