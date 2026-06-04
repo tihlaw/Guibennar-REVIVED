@@ -1,4 +1,4 @@
-dig_1_ui_ui = {
+dig_1_ui = {
 	local_development_cost = -0.1 #30
 	trade_goods_size = 0.05
 	local_state_maintenance_modifier = 0.1

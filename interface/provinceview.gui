@@ -4306,14 +4306,14 @@ guiTypes = {
 			
 			
 			#Harpy roosts
-			guiButtonType = {
-				name ="build_roost_button"
-				position = { x= 448 y = -85 }
-				quadTextureSprite ="GFX_build_roost_button"
-				buttonFont = "vic_18"
-				Orientation = "UPPER_LEFT"
-				scripted = yes
-			}
+			# guiButtonType = {
+				#name ="build_roost_button"
+				#position = { x= 448 y = -85 }
+				#quadTextureSprite ="GFX_build_roost_button"
+				#buttonFont = "vic_18"
+				#Orientation = "UPPER_LEFT"
+				#scripted = yes
+			#}
 			
 			
 			# #High temples
